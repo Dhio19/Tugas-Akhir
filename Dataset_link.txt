@@ -1,0 +1,12 @@
+API link:
+!pip install roboflow
+
+from roboflow import Roboflow
+rf = Roboflow(api_key="R0xYmtI52bCnUHUWGq2P")
+project = rf.workspace("chanara").project("final-tpjed")
+version = project.version(1)
+dataset = version.download("yolov5")
+
+
+Link for Dataset : https://app.roboflow.com/chanara/final-tpjed/1
+                
