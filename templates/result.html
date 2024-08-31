@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasil</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="overlay"></div> <!-- Semi-transparent overlay -->
+    <input type="checkbox" id="sidebar-toggle">
+    <label for="sidebar-toggle" class="openbtn">Menu</label>
+
+    <div class="sidebar">
+        <label for="sidebar-toggle" class="closebtn">&times;</label>
+        <a href="/">Home</a>
+        <a href="/alfabet">Alfabet</a>
+        <a href="/upload">Upload</a>
+        <a href="/webcam">Live Camera</a>
+    </div>
+
+    <div class="main-content">
+        
+        <h1>Hasil</h1>
+        <div class="result-container">
+            <img src="{{ result_image_url }}" alt="Detected Image" class="responsive-img">
+        </div>
+        <div class="button-container">
+            <a href="/upload" class="back-button">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>

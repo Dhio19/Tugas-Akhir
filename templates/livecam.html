@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Camera</title>
+    <link rel="stylesheet" href="./static/css/style.css">
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle">
+    <label for="sidebar-toggle" class="openbtn">Menu</label>
+
+    <div class="sidebar">
+        <label for="sidebar-toggle" class="closebtn">&times;</label>
+        <a href="/">Home</a>
+        <a href="/alfabet">Alfabet</a>
+        <a href="/upload">Upload</a>
+        <a href="/webcam">Live Camera</a>
+    </div>
+
+    <div class="main-content">
+        <h1>Live Camera</h1>
+        <p>Gunakan fitur kamera langsung untuk menerjemahkan bahasa isyarat secara real-time.<br>Aktifkan kamera perangkat Anda dan tunjukkan isyarat, dan sistem akan langsung menerjemahkannya. Fitur ini dirancang untuk interaksi cepat dan efektif.</p>
+        <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    </div>
+</body>
+</html>

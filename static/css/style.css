@@ -1,0 +1,260 @@
+body {
+    position: relative; /* Ensure the body is relative for pseudo-element positioning */
+    font-family: "Lato", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrollbars */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    z-index: -1; /* Place behind other content */
+}
+
+body {
+    background-image: url('./bg/bg.jpg'); /* Adjust path as per your directory structure */
+    background-size: cover; /* Cover the entire viewport */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+#sidebar-toggle {
+    display: none;
+}
+
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: width 0.5s; /* Transition width for smooth sidebar opening */
+    padding-top: 60px; /* Same padding-top as the main-content for alignment */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    font-size: 36px;
+    cursor: pointer;
+    color: white;
+    display: none; /* Initially hidden */
+    transition: background-color 0.3s ease;
+}
+
+.openbtn {
+    position: absolute;
+    top: 12px;
+    left: 25px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: block; /* Ensure open button is initially visible */
+    transition: background-color 0.3s ease;
+}
+
+.openbtn:hover {
+    background-color: black;
+    color: white;
+
+}
+
+#sidebar-toggle:checked ~ .sidebar {
+    width: 250px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .closebtn {
+    display: block; /* Show close button when sidebar is open */
+}
+
+#sidebar-toggle:checked ~ .sidebar .openbtn {
+    display: none; /* Hide open button when sidebar is open */
+}
+
+#sidebar-toggle:checked ~ .main-content {
+    margin-left: 250px; /* Ensure main-content moves right with sidebar open */
+}
+
+.main-content {
+    transition: margin-left 0.5s; /* Transition margin-left for smooth movement */
+    padding: 16px;
+    padding-top: 45px; /* Adjust based on the sidebar padding-top */
+    padding-left: 20px; /* Adjust based on desired left spacing */
+    color: white;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar { padding-top: 15px; }
+    .sidebar a { font-size: 18px; }
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+}
+
+.upload-container input[type="file"] {
+    margin-right: 10px;
+}
+
+.result-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.result-container img.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    max-height: 40vh; /* Adjust the maximum height as needed */
+    border: 5px solid #ddd;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #575757;
+}
+
+.upload-container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.input-file {
+    display: none; /* Hide the default file input */
+}
+
+.browse-button {
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    
+}
+
+.browse-button:hover {
+    background-color: #575757;
+}
+
+.upload-button {
+    background-color: #111;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px;
+    border: none; /* Ensure no border */
+    height: 42px; /* Adjust the height as needed */
+}
+
+.upload-button:hover {
+    background-color: #575757;
+}
+
+dt {
+    font-weight: bold;
+    margin-bottom: 5px; /* Margin bottom for dt */
+}
+
+dt + p {
+    margin-top: 0; /* Remove default margin-top for first p after dt */
+    margin-bottom: 20px; /* Margin bottom for p */
+}
+
+/* Tambahan CSS untuk galeri gambar */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Membuat 5 kolom */
+    gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 10px;
+    margin: 20px auto; /* Tengahkan galeri di halaman */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.gallery figure {
+    margin: 0; /* Hilangkan margin default dari figure */
+    padding: 0;
+    text-align: center; /* Tengahkan teks */
+    background-color: #000; /* Warna latar belakang hitam */
+    border-radius: 5px;
+    overflow: hidden; /* Untuk memastikan teks dan gambar terpotong dengan rapi */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    border-bottom: 5px solid #000; /* Garis bawah hitam antara gambar dan teks */
+    border-radius: 5px 5px 0 0; /* Radius hanya untuk bagian atas */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.gallery figcaption {
+    margin-top: 8px;
+    font-size: 20px; /* Ukuran font lebih besar */
+    color: #fff; /* Warna teks putih */
+    padding: 10px 0;
+    width: 100%;
+    background-color: #000; /* Latar belakang hitam */
+    border-radius: 0 0 5px 5px; /* Radius hanya untuk bagian bawah */
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}

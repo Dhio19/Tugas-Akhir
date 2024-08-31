@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+    <input type="checkbox" id="sidebar-toggle">
+    <label for="sidebar-toggle" class="openbtn">Menu</label>
+
+    <div class="sidebar">
+        <label for="sidebar-toggle" class="closebtn">&times;</label>
+        <a href="/">Home</a>
+        <a href="/alfabet">Alfabet</a>
+        <a href="/upload">Upload</a>
+        <a href="/webcam">Live Camera</a>
+    </div>
+
+    <div class="main-content">
+        
+        <p>Tidak Ada File Yang Diupload</p>
+        <a href="/upload" class="back-button">Back to Upload</a>
+    </div>
+
+    <script>
+        function updateFileLabel() {
+            var fileInput = document.getElementById('file');
+            var fileLabel = document.getElementById('fileLabel');
+            if (fileInput.value) {
+                var fileName = fileInput.value.split('\\').pop();
+                fileLabel.innerHTML = fileName;
+            } else {
+                fileLabel.innerHTML = 'Browse';
+            }
+        }
+    </script>
+</body>
+</html>
